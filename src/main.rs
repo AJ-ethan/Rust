@@ -1,8 +1,10 @@
 fn main() {
-    println!("Hello, world!");
-    let height = 10;
-    let mut hei = 15;
-    hei = 80;
-    println!("checks {}-{}",height,hei)
+    let maybe_number: Option<Option<()>> = None;
+    let maybe_number = Some(42);
+    if let Some(number) = maybe_number {
+        println!("The number is {:?}", number);
+    } else {
+        println!("There is no number");
+    }
 }
  
