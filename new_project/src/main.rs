@@ -76,34 +76,73 @@ fn own_string(s: String) {
 // or another part of your program without actually transferring ownership of the variable. 
 // When you borrow a variable, you're essentially saying 
 // "I want to use this variable for a little while, but I promise I won't modify it."
-fn borrow_str(s: &mut String) {
-    println!("innner {}",s);
-    s.push_str("nnnnnnnnnnn");
-}
+// fn borrow_str(s: &mut String) {
+//     println!("innner {}",s);
+//     s.push_str("nnnnnnnnnnn");
+// }
 
-fn main() {
-    let mut my_vec = vec![1, 2, 3, 4, 5];
-    let my_int = 10;
-    let my_string = String::from("Hello, world!");
-    let mut m_string = String::from("djsfhsdjkf fjdasl!");
-    // this compiles no problem!
-    own_integer(my_int);
-    println!("{}", my_int);
+// fn main() {
+//     let mut my_vec = vec![1, 2, 3, 4, 5];
+//     let my_int = 10;
+//     let my_string = String::from("Hello, world!");
+//     let mut m_string = String::from("djsfhsdjkf fjdasl!");
+//     // this compiles no problem!
+//     own_integer(my_int);
+//     println!("{}", my_int);
 
-    own_string(my_string); // take ownership of my_string
-    // this is using my_string which has also moved and is invalid
-    //println!("{:?}", my_string); // this will not compile!
+//     own_string(my_string); // take ownership of my_string
+//     // this is using my_string which has also moved and is invalid
+//     //println!("{:?}", my_string); // this will not compile!
 
-    own_vec(my_vec);
-    // but this is using my_vec which was borrowed (moved) and yet is now invalid
-    //println!("{:?}", my_vec); // this will not compile!
+//     own_vec(my_vec);
+//     // but this is using my_vec which was borrowed (moved) and yet is now invalid
+//     //println!("{:?}", my_vec); // this will not compile!
 
-    println!("{}",m_string);
-    borrow_str(&mut m_string);
-    println!("{}",m_string);
-}
+//     println!("{}",m_string);
+//     borrow_str(&mut m_string);
+//     println!("{}",m_string);
+// }
 
 // Borrowing is a key concept in Rust because it allows you to write code that is both safe and efficient. 
 // By lending ownership of a variable instead of transferring it, Rust ensures that only 
 // one part of your program can modify the variable at a time, which helps prevent 
 // bugs and makes it easier to reason about your code.
+
+
+
+
+
+
+#[derive(Debug)]
+struct Person {
+    first_name: String,
+    last_name: String,
+    email:String,
+    age: u8,
+}
+
+fn person(first_name:String,last_name:String)-> String{
+    let email = "empty".to_string();
+    let age = 0;
+    let person_obj= Person {
+        first_name,
+        last_name,
+        email,
+        age,
+    };
+    let n = person_obj.first_name+&person_obj.last_name;
+    n
+}
+
+fn main() {
+    let person_obj= Person {
+        first_name: "John".to_string(),
+        last_name: "Doe".to_string(),
+        email: "john@doe.com".to_string(),
+        age: 25,
+    };
+    println!("{:?}", person_obj);
+
+    let person_result = person("Jhn".to_string(),"doe".to_string());
+    println!("{:?} result",person_result);
+}
