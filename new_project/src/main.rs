@@ -145,4 +145,5 @@ fn main() {
 
     let person_result = person("Jhn".to_string(),"doe".to_string());
     println!("{:?} result",person_result);
+    println!("{:?} result",person_result);
 }
