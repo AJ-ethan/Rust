@@ -1,16 +1,3 @@
-// fn main() {
-//     let maybe_number: Option<Option<()>> = None;
-//     let maybe_number = Some(42);
-//     if let Some(number) = maybe_number {
-//         println!("The number is {:?}", number);
-//     } else {
-//         println!("There is no number");
-//     }
-// }
-
-
-//STRING INTERNAL
-
 fn main() {
     let sentence = "the quick brown fox jumps over the lazy dog".to_string();
     // Use slicing to get the first three characters of the sentence
@@ -36,5 +23,3 @@ fn main() {
     let reversed = sentence.chars().rev().collect::<String>();
     println!("{}", reversed);
 }
-
- 
